@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prenota Posti</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <img src="img/dark.svg" id="icon">
+  <div class="container" id="login">
+    <div class="heading">
+      <h1>PRENOTAZIONE POSTI CINEMA</h1>
+      <h3>CONFIGURAZIONE</h3>
+    </div>
+
+    <form action="">
+      <div class="flex-elements">
+        <input type="text" id="file" placeholder="Numero file" onfocus="resetStyle()">
+        <input type="text" id="postiPerFila" placeholder="Posti per fila" onfocus="resetStyle()">
+        <input type="text" id="postiOccupati" placeholder="Occupati" onfocus="resetStyle()">
+      </div>
+      <div class="bottoni-inizio">
+        <button type="button" id="btnGenera" onclick="inizializza()">Genera</button>
+        <input type="reset" id="btnClear" value="">
+      </div>
+      <p id="error"></p>
+    </form>
+
+  </div>
+  <div id="main">
+    <div id="posti-container">
+      <div id="schermo-e-posti">
+        <div id="schermo">
+          <p>SCHERMO</p>
+        </div>
+        <table id="tabellaPosti">
+
+        </table>
+
+      </div>
+      <div class="container2">
+        <div class="sezione-posti">
+          <div class="flex">
+            <h2>OCCUPATI:</h2>
+            <div class="span">
+              <span id="spanOccupati">0</span>
+            </div>
+          </div>
+          <div class="flex">
+            <h2>DISPONIBILI:</h2>
+            <div class="span">
+              <span id="spanDisponibili">0</span>
+            </div>
+          </div>
+          <div class="flex">
+            <h2>SELEZIONATI:</h2>
+            <div class="span">
+              <span id="spanSelezionati">0</span>
+            </div>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="sezione-prezzo">
+          <div class="flex">
+            <h2>COSTO (7€/cad.):</h2>
+            <div class="span">
+              <span id="spanPrezzo">0€</span>
+            </div>
+          </div>
+        </div>
+        <div class="sezione-bottone">
+          <button id="btnConferma" onclick="conferma()">Conferma</button>
+          <button id="btnReset" onclick="reset()">Reset</button>
+        </div>
+
+        <div class="sezione-legenda">
+          <div>
+            <div class="libero square"></div>
+            <p>Libero</p>
+          </div>
+          <div>
+            <div class="occupato square"></div>
+            <p>Occupato</p>
+          </div>
+          <div>
+            <div class="selezionato square"></div>
+            <p>Selezionato</p>
+          </div>
+          <div>
+            <div class="confermati square"></div>
+            <p>Confermato</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    var icon = document.getElementById("icon");
+
+    icon.onclick = function () {
+      document.body.classList.toggle("dark-mode")
+      if (document.body.classList.contains("dark-mode")) {
+        icon.src = "img/light.svg"
+      } else {
+        icon.src = "img/dark.svg"
+      }
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>
